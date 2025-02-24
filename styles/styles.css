@@ -1,0 +1,409 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.link {
+    text-decoration: none;
+    color: #008;
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: cornflowerblue;
+}
+
+/* Sidebar ------------------------------------------------------- */
+
+.sidebar {
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #0a4a22;
+    color: white;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 50px;
+}
+
+.sidebar.collapsed .menu-text,
+.sidebar.collapsed ul,
+.sidebar.collapsed .menu-btn {
+    display: none;
+}
+
+.sidebar-header {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0a4a22;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin: 0;
+}
+
+.sidebar label,
+.sidebar a {
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.sidebar label:hover,
+.sidebar a:hover {
+    background-color: white;
+    color: #009F3B;
+    /* text-decoration: underline; */
+}
+
+/* Menu ------------------------------------------------------- */
+
+.sidebar .menu-btn {
+    background: none;
+    color: white;
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+}
+
+.submenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    background-color: #0a4a22;
+}
+
+.submenu>li {
+    padding: 2px 20px;
+}
+
+.submenu>li:hover {
+    background-color: #0a4a22;
+}
+
+#toggle-menu {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: transform 0.3s ease;
+}
+
+#toggle-menu:hover {
+    transform: scale(1.1);
+}
+
+.menu-text {
+    margin: 0;
+    font-size: 1.2em;
+    transition: opacity 0.3s ease;
+}
+
+/* Conteúdo principal ------------------------------------------------------- */
+
+.content {
+    margin-left: 250px;
+    width: calc(100% - 300px);
+    padding: 20px;
+    background-color: #f6f6f9;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.sidebar.collapsed+.content {
+    margin-left: 50px;
+    width: calc(100% - 50px);
+}
+
+header {
+    background-color: #009F3B;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo dos itens principais ------------------------------------------------------- */
+
+.template-item {
+    margin: 40px 0;
+    padding: 40px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transform: translateY(200px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.template-item.visible {
+    transform: translateY(0);
+}
+
+.template-item ol,
+.template-item ul {
+    margin: 25px 50px;
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+li {
+    line-height: 1.5;
+}
+
+.metade {
+    margin-right: 41%;
+}
+
+.success {
+    display: block;
+    background-color: #d4edda;;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    line-height: 1.5;
+}
+
+table.success img {
+    width: 30px;
+    height: 30px;
+    padding: 20px;
+}
+
+.danger {
+    display: block;
+    background-color: #f8d7da;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    line-height: 1.5;
+}
+
+table.danger img {
+    width: 30px;
+    height: 30px;
+    padding: 20px;
+}
+
+.warning {
+    display: block;
+    background-color: #FFF3CD;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    line-height: 1.5;
+}
+
+table.warning img {
+    width: 30px;
+    height: 30px;
+    padding: 20px;
+}
+
+.greenHead {
+    background-color: #009F3B;
+    color: white;
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 10px;
+}
+
+/* Imagens ------------------------------------------------------- */
+
+figure.zoom {
+    position: absolute;
+}
+
+figure.zoom img:hover {
+    opacity: 0;
+}
+
+figure.zoom img {
+    transition: opacity 0.5s;
+    display: block;
+}
+
+.img-Logon {
+    width: 504px;
+    height: 458px;
+}
+
+.img-Cadastro {
+    width: 612px;
+    height: 561px;
+}
+
+.img-Senha {
+    width: 379px;
+    height: 442px;
+}
+
+.img-Credencial {
+    width: 378px;
+    height: 442px;
+}
+
+.img-Quadro {
+    width: 768px;
+    height: 619px;
+}
+
+.img-Minhas {
+    width: 768px;
+    height: 462px;
+}
+
+.img-Minhas2 {
+    width: 768px;
+    height: 420px;
+}
+
+.img-bCadastre-se {
+    width: 465px;
+    height: 134px;
+}
+
+.img-bSenha {
+    width: 465px;
+    height: 134px;
+}
+
+.img-bCredencial {
+    width: 465px;
+    height: 134px;
+}
+
+.img-Nova {
+    width: 768px;
+    height: 424px;
+}
+
+.img-Nova1 {
+    width: 768px;
+    height: 432px;
+}
+
+.img-Nova2 {
+    width: 768px;
+    height: 445px;
+}
+
+.img-Nova3 {
+    width: 768px;
+    height: 518px;
+}
+
+.img-Nova4 {
+    width: 768px;
+    height: 619px;
+}
+
+.img-Nova5 {
+    width: 768px;
+    height: 619px;
+}
+
+.img-Nova6 {
+    width: 768px;
+    height: 1037px;
+}
+
+.img-Mais {
+    width: 409px;
+    height: 111px;
+}
+
+.img-Acompanha0 {
+    width: 768px;
+    height: 461px;
+}
+
+.img-Acompanha1 {
+    width: 768px;
+    height: 619px;
+}
+
+.img-Acompanha2 {
+    width: 768px;
+    height: 619px;
+}
+
+.img-Comunicados {
+    width: 768px;
+    height: 447px;
+}
+
+.img-Comunicados1 {
+    width: 768px;
+    height: 447px;
+}
+
+.img-Comunicados2 {
+    width: 768px;
+    height: 462px;
+}
+
+.img-Comunicados3 {
+    width: 768px;
+    height: 462px;
+}
+
+.img-Comunicados4 {
+    width: 768px;
+    height: 462px;
+}
+
+.img-Comunicados5 {
+    width: 768px;
+    height: 462px;
+}
+
+img {
+    display: block;
+}
+
+table.warning img.Paragraph {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 21px;
+    height: 21px;
+    margin: 1px;
+    padding: 1px;
+}
