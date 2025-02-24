@@ -7,418 +7,8 @@
     <title>Help - Plataforma Digital de Processos (PDP)</title>
     <!-- link rel="stylesheet" href="styles/styles.css" -->
     <link rel="icon" type="image/x-icon" href="images/pdp_icon.ico">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="stylesheet" href="styles/styles.css">
 
-        a {
-            text-decoration: none;
-            color: white;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .link {
-            text-decoration: none;
-            color: #008;
-        }
-
-        .link:hover {
-            text-decoration: underline;
-            color: cornflowerblue;
-        }
-
-        /* Sidebar ------------------------------------------------------- */
-
-        .sidebar {
-            padding: 0;
-            margin: 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 250px;
-            height: 100vh;
-            background-color: #0a4a22;
-            color: white;
-            overflow-y: auto;
-            transition: width 0.3s ease;
-        }
-
-        .sidebar.collapsed {
-            width: 50px;
-        }
-
-        .sidebar.collapsed .menu-text,
-        .sidebar.collapsed ul,
-        .sidebar.collapsed .menu-btn {
-            display: none;
-        }
-
-        .sidebar-header {
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #0a4a22;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar li {
-            margin: 0;
-        }
-
-        .sidebar label,
-        .sidebar a {
-            color: white;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-decoration: none;
-        }
-
-        .sidebar label:hover,
-        .sidebar a:hover {
-            background-color: white;
-            color: #009F3B;
-            /* text-decoration: underline; */
-        }
-
-        /* Menu ------------------------------------------------------- */
-
-        .sidebar .menu-btn {
-            background: none;
-            color: white;
-            border: none;
-            padding: 0px;
-            cursor: pointer;
-            text-align: left;
-            width: 100%;
-        }
-
-        .submenu {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: none;
-            background-color: #0a4a22;
-        }
-
-        .submenu>li {
-            padding: 2px 20px;
-        }
-
-        .submenu>li:hover {
-            background-color: #0a4a22;
-        }
-
-        #toggle-menu {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 5px 10px;
-            transition: transform 0.3s ease;
-        }
-
-        #toggle-menu:hover {
-            transform: scale(1.1);
-        }
-
-        .menu-text {
-            margin: 0;
-            font-size: 1.2em;
-            transition: opacity 0.3s ease;
-        }
-
-        /* Conteúdo principal ------------------------------------------------------- */
-
-        .content {
-            margin-left: 250px;
-            width: calc(100% - 300px);
-            padding: 20px;
-            background-color: #f6f6f9;
-            transition: margin-left 0.3s ease, width 0.3s ease;
-        }
-
-        .sidebar.collapsed+.content {
-            margin-left: 50px;
-            width: calc(100% - 50px);
-        }
-
-        header {
-            background-color: #009F3B;
-            color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Estilo dos itens principais ------------------------------------------------------- */
-
-        .template-item {
-            margin: 40px 0;
-            padding: 40px;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            transform: translateY(200px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        .template-item.visible {
-            transform: translateY(0);
-        }
-
-        .template-item ol,
-        .template-item ul {
-            margin: 25px 50px;
-        }
-
-        p {
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        li {
-            line-height: 1.5;
-        }
-
-        .metade {
-            margin-right: 41%;
-        }
-
-        .success {
-            display: block;
-            background-color: #d4edda;
-            ;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            line-height: 1.5;
-        }
-
-        table.success img {
-            width: 30px;
-            height: 30px;
-            padding: 20px;
-        }
-
-        .danger {
-            display: block;
-            background-color: #f8d7da;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            line-height: 1.5;
-        }
-
-        table.danger img {
-            width: 30px;
-            height: 30px;
-            padding: 20px;
-        }
-
-        .warning {
-            display: block;
-            background-color: #FFF3CD;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            line-height: 1.5;
-        }
-
-        table.warning img {
-            width: 30px;
-            height: 30px;
-            padding: 20px;
-        }
-
-        .greenHead {
-            background-color: #009F3B;
-            color: white;
-            padding: 10px;
-            padding-left: 20px;
-            border-radius: 10px;
-        }
-
-        /* Imagens ------------------------------------------------------- */
-
-        figure.zoom {
-            position: absolute;
-        }
-
-        figure.zoom img:hover {
-            opacity: 0;
-        }
-
-        figure.zoom img {
-            transition: opacity 0.5s;
-            display: block;
-        }
-
-        .img-Logon {
-            width: 504px;
-            height: 458px;
-        }
-
-        .img-Cadastro {
-            width: 612px;
-            height: 561px;
-        }
-
-        .img-Senha {
-            width: 379px;
-            height: 442px;
-        }
-
-        .img-Credencial {
-            width: 378px;
-            height: 442px;
-        }
-
-        .img-Quadro {
-            width: 768px;
-            height: 619px;
-        }
-
-        .img-Minhas {
-            width: 768px;
-            height: 462px;
-        }
-
-        .img-Minhas2 {
-            width: 768px;
-            height: 420px;
-        }
-
-        .img-bCadastre-se {
-            width: 465px;
-            height: 134px;
-        }
-
-        .img-bSenha {
-            width: 465px;
-            height: 134px;
-        }
-
-        .img-bCredencial {
-            width: 465px;
-            height: 134px;
-        }
-
-        .img-Nova {
-            width: 768px;
-            height: 424px;
-        }
-
-        .img-Nova1 {
-            width: 768px;
-            height: 432px;
-        }
-
-        .img-Nova2 {
-            width: 768px;
-            height: 445px;
-        }
-
-        .img-Nova3 {
-            width: 768px;
-            height: 518px;
-        }
-
-        .img-Nova4 {
-            width: 768px;
-            height: 619px;
-        }
-
-        .img-Nova5 {
-            width: 768px;
-            height: 619px;
-        }
-
-        .img-Nova6 {
-            width: 768px;
-            height: 1037px;
-        }
-
-        .img-Mais {
-            width: 409px;
-            height: 111px;
-        }
-
-        .img-Acompanha0 {
-            width: 768px;
-            height: 461px;
-        }
-
-        .img-Acompanha1 {
-            width: 768px;
-            height: 619px;
-        }
-
-        .img-Acompanha2 {
-            width: 768px;
-            height: 619px;
-        }
-
-        .img-Comunicados {
-            width: 768px;
-            height: 447px;
-        }
-
-        .img-Comunicados1 {
-            width: 768px;
-            height: 447px;
-        }
-
-        .img-Comunicados2 {
-            width: 768px;
-            height: 462px;
-        }
-
-        .img-Comunicados3 {
-            width: 768px;
-            height: 462px;
-        }
-
-        .img-Comunicados4 {
-            width: 768px;
-            height: 462px;
-        }
-
-        .img-Comunicados5 {
-            width: 768px;
-            height: 462px;
-        }
-
-        img {
-            display: block;
-        }
-
-        table.warning img.Paragraph {
-            display: inline-block;
-            vertical-align: bottom;
-            width: 21px;
-            height: 21px;
-            margin: 1px;
-            padding: 1px;
-        }
-    </style>
 </head>
 
 <body>
@@ -528,6 +118,14 @@
 
             <section class="template-item" data-lazy>
 
+                <div class="image-container">
+                    <img src="images/Trabalhando.png" alt="Estamos trabalhando" class="responsive-img">
+                </div>
+
+            </section>
+
+            <section class="template-item" data-lazy>
+
                 <h2>O que é a Plataforma Digital de Processos (PDP)?</h2>
 
                 <p>A Plataforma Digital de Processos (PDP) é uma ferramenta desenvolvida para modernizar e otimizar a
@@ -602,7 +200,7 @@
 
                 <div class="img-Logon">
                     <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(images/Logon.png)">
-                        <img id="Logon" src="images/Logon.png" width="504" height="458" alt="Tela de Logon">
+                        <img id="Logon" class="responsive-img" src="images/Logon.png" width="504" height="458" alt="Tela de Logon">
                     </figure>
                 </div>
 
@@ -625,7 +223,7 @@
                     <div class="img-bCadastre-se">
                         <figure class="zoom" onmousemove="zoom(event)"
                             style="background-image: url(images/bCadastre-se.png)">
-                            <img id="bCadastre-se" src="images/bCadastre-se.png" width="465" height="134"
+                            <img id="bCadastre-se" class="responsive-img" src="images/bCadastre-se.png" width="465" height="134"
                                 alt='Botão "Cadastre-se"'>
                         </figure>
                     </div>
@@ -645,7 +243,7 @@
 
                 <div class="img-Cadastro">
                     <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(images/Cadastro.png)">
-                        <img id="Cadastro" src="images/Cadastro.png" width="612" height="561" alt="Tela de Cadastro">
+                        <img id="Cadastro" class="responsive-img" src="images/Cadastro.png" width="612" height="561" alt="Tela de Cadastro">
                     </figure>
                 </div>
                 <br />
@@ -687,7 +285,7 @@
                     <br />
                     <div class="img-bSenha">
                         <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(images/bSenha.png)">
-                            <img id="bSenha" src="images/bSenha.png" width="465" height="134"
+                            <img id="bSenha" class="responsive-img" src="images/bSenha.png" width="465" height="134"
                                 alt='Botão "Recuperar Senha"'>
                         </figure>
                     </div>
@@ -698,7 +296,7 @@
                     <br />
                     <div class="img-Senha">
                         <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(images/Senha.png)">
-                            <img id="Senha" src="images/Senha.png" width="379" height="442"
+                            <img id="Senha" class="responsive-img" src="images/Senha.png" width="379" height="442"
                                 alt="Tela de recuperação de Senha">
                         </figure>
                     </div>
@@ -745,7 +343,7 @@
                     <div class="img-Credencial">
                         <figure class="zoom" onmousemove="zoom(event)"
                             style="background-image: url(images/Credencial.png)">
-                            <img id="Credencial" src="images/Credencial.png" width="378" height="442"
+                            <img id="Credencial" class="responsive-img" src="images/Credencial.png" width="378" height="442"
                                 alt="Tela de reativação de Credencial">
                         </figure>
                     </div>
@@ -797,7 +395,7 @@
 
                 <div class="img-Quadro">
                     <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(images/Quadro.png)">
-                        <img id="Quadro" src="images/Quadro.png" width="768" height="619"
+                        <img id="Quadro" class="responsive-img" src="images/Quadro.png" width="768" height="619"
                             alt="Tela do quadro de aplicações do Portal de Aplicações e Serviços">
                     </figure>
                 </div>
@@ -807,7 +405,7 @@
 
                 <div class="img-Minhas2">
                     <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(images/Minhas2.png)">
-                        <img id="Minhas2" src="images/Minhas2.png" width="768" height="462"
+                        <img id="Minhas2" class="responsive-img" src="images/Minhas2.png" width="768" height="462"
                             alt='Tela do "Minhas Solicitações"'>
                     </figure>
                 </div>
@@ -848,7 +446,7 @@
                 <br />
                 <div class="img-Minhas">
                     <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(images/Minhas.png)">
-                        <img id="Minhas" src="images/Minhas.png" width="768" height="462"
+                        <img id="Minhas" class="responsive-img" src="images/Minhas.png" width="768" height="462"
                             alt='Tela do "Minhas Solicitações"'>
                     </figure>
                 </div>
@@ -873,7 +471,7 @@
                             <div class="img-Nova">
                                 <figure class="zoom" onmousemove="zoom(event)"
                                     style="background-image: url(images/Nova.png)">
-                                    <img id="Nova" src="images/Nova.png" width="768" height="424"
+                                    <img id="Nova" class="responsive-img" src="images/Nova.png" width="768" height="424"
                                         alt='Para você ou por procurador'>
                                 </figure>
                             </div>
@@ -886,7 +484,7 @@
                             <div class="img-Nova1">
                                 <figure class="zoom" onmousemove="zoom(event)"
                                     style="background-image: url(images/Nova1.png)">
-                                    <img id="Nova1" src="images/Nova1.png" width="768" height="432"
+                                    <img id="Nova1" class="responsive-img" src="images/Nova1.png" width="768" height="432"
                                         alt='Iniciando uma "Nova Solicitação"'>
                                 </figure>
                             </div>
@@ -903,7 +501,7 @@
                         <div class="img-Nova2">
                             <figure class="zoom" onmousemove="zoom(event)"
                                 style="background-image: url(images/Nova2.png)">
-                                <img id="Nova2" src="images/Nova2.png" width="768" height="445"
+                                <img id="Nova2" class="responsive-img" src="images/Nova2.png" width="768" height="445"
                                     alt='Procurador de pessoa Física ou de pessoa Jurídica'>
                             </figure>
                         </div>
@@ -918,7 +516,7 @@
                             <div class="img-Nova3">
                                 <figure class="zoom" onmousemove="zoom(event)"
                                     style="background-image: url(images/Nova3.png)">
-                                    <img id="Nova3" src="images/Nova3.png" width="768" height="518"
+                                    <img id="Nova3" class="responsive-img" src="images/Nova3.png" width="768" height="518"
                                         alt='Procurador de pessoa Física ou de pessoa Jurídica'>
                                 </figure>
                             </div>
@@ -930,7 +528,7 @@
                             <div class="img-Nova4">
                                 <figure class="zoom" onmousemove="zoom(event)"
                                     style="background-image: url(images/Nova4.png)">
-                                    <img id="Nova4" src="images/Nova4.png" width="768" height="619"
+                                    <img id="Nova4" class="responsive-img" src="images/Nova4.png" width="768" height="619"
                                         alt='Selecione o serviço específico'>
                                 </figure>
                             </div>
@@ -956,7 +554,7 @@
                         <div class="img-Nova5">
                             <figure class="zoom" onmousemove="zoom(event)"
                                 style="background-image: url(images/Nova5.png)">
-                                <img id="Nova5" src="images/Nova5.png" width="768" height="619"
+                                <img id="Nova5" class="responsive-img" src="images/Nova5.png" width="768" height="619"
                                     alt='Selecione o serviço específico'>
                             </figure>
                         </div>
@@ -986,7 +584,7 @@
                         <div class="img-Nova6">
                             <figure class="zoom" onmousemove="zoom(event)"
                                 style="background-image: url(images/Nova6.png)">
-                                <img id="Nova6" src="images/Nova6.png" width="768" height="1037"
+                                <img id="Nova6" class="responsive-img" src="images/Nova6.png" width="768" height="1037"
                                     alt='Inclua os Documentos necessários'>
                             </figure>
                         </div>
@@ -1030,7 +628,7 @@
 
                     <div class="img-Mais">
                         <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(images/Mais.png)">
-                            <img id="Mais" src="images/Mais.png" width="409" height="111" alt='Mais Anexos'>
+                            <img id="Mais" class="responsive-img" src="images/Mais.png" width="409" height="111" alt='Mais Anexos'>
                         </figure>
                     </div>
                     <br /><br />
@@ -1057,7 +655,7 @@
                     <div class="img-Acompanha0">
                         <figure class="zoom" onmousemove="zoom(event)"
                             style="background-image: url(images/Acompanha0.png)">
-                            <img id="Acompanha0" src="images/Acompanha0.png" width="768" height="461"
+                            <img id="Acompanha0" class="responsive-img" src="images/Acompanha0.png" width="768" height="461"
                                 alt='Acompanhamento de Solicitação'>
                         </figure>
                     </div>
@@ -1069,7 +667,7 @@
                     <div class="img-Acompanha1">
                         <figure class="zoom" onmousemove="zoom(event)"
                             style="background-image: url(images/Acompanha1.png)">
-                            <img id="Acompanha1" src="images/Acompanha1.png" width="768" height="619"
+                            <img id="Acompanha1" class="responsive-img" src="images/Acompanha1.png" width="768" height="619"
                                 alt='Acompanhamento de Solicitação'>
                         </figure>
                     </div>
@@ -1089,7 +687,7 @@
                     <div class="img-Acompanha2">
                         <figure class="zoom" onmousemove="zoom(event)"
                             style="background-image: url(images/Acompanha2.png)">
-                            <img id="Acompanha2" src="images/Acompanha2.png" width="768" height="619"
+                            <img id="Acompanha2" class="responsive-img" src="images/Acompanha2.png" width="768" height="619"
                                 alt='Acompanhamento de Solicitação'>
                         </figure>
                     </div>
@@ -1145,7 +743,7 @@
                     <div class="img-Comunicados">
                         <figure class="zoom" onmousemove="zoom(event)"
                             style="background-image: url(images/Comunicados.png)">
-                            <img id="Comunicados" src="images/Comunicados.png" width="768" height="447"
+                            <img id="Comunicados" class="responsive-img" src="images/Comunicados.png" width="768" height="447"
                                 alt='Verificar se há novos comunicados'>
                         </figure>
                     </div>
@@ -1165,7 +763,7 @@
                         <div class="img-Comunicados1">
                             <figure class="zoom" onmousemove="zoom(event)"
                                 style="background-image: url(images/Comunicados1.png)">
-                                <img id="Comunicados1" src="images/Comunicados1.png" width="768" height="462"
+                                <img id="Comunicados1" class="responsive-img" src="images/Comunicados1.png" width="768" height="462"
                                     alt='Comunicado recebido'>
                             </figure>
                         </div>
@@ -1190,7 +788,7 @@
                         <div class="img-Comunicados3">
                             <figure class="zoom" onmousemove="zoom(event)"
                                 style="background-image: url(images/Comunicados3.png)">
-                                <img id="Comunicados3" src="images/Comunicados3.png" width="768" height="462"
+                                <img id="Comunicados3" class="responsive-img" src="images/Comunicados3.png" width="768" height="462"
                                     alt='Resposta ao comunicado recebido'>
                             </figure>
                         </div>
@@ -1206,7 +804,7 @@
                     <div class="img-Comunicados4">
                         <figure class="zoom" onmousemove="zoom(event)"
                             style="background-image: url(images/Comunicados4.png)">
-                            <img id="Comunicados4" src="images/Comunicados4.png" width="768" height="462"
+                            <img id="Comunicados4" class="responsive-img" src="images/Comunicados4.png" width="768" height="462"
                                 alt='Resposta ao comunicado recebido'>
                         </figure>
                     </div>
@@ -1219,7 +817,7 @@
                     <div class="img-Comunicados2">
                         <figure class="zoom" onmousemove="zoom(event)"
                             style="background-image: url(images/Comunicados2.png)">
-                            <img id="Comunicados2" src="images/Comunicados2.png" width="768" height="462"
+                            <img id="Comunicados2" class="responsive-img" src="images/Comunicados2.png" width="768" height="462"
                                 alt='Resposta ao comunicado recebido'>
                         </figure>
                     </div>
@@ -1228,7 +826,7 @@
                     <div class="img-Comunicados5">
                         <figure class="zoom" onmousemove="zoom(event)"
                             style="background-image: url(images/Comunicados5.png)">
-                            <img id="Comunicados5" src="images/Comunicados5.png" width="768" height="462"
+                            <img id="Comunicados5" class="responsive-img" src="images/Comunicados5.png" width="768" height="462"
                                 alt='Resposta ao comunicado recebido'>
                         </figure>
                     </div>
@@ -1266,7 +864,8 @@
 
                 <h2>Como acompanhar um processo iniciado no Protocolo da Economia?</h2>
 
-                <p>Se o processo foi aberto via atendimento do Protocolo da Economia, há duas formas de acompanhá-lo:</p>
+                <p>Se o processo foi aberto via atendimento do Protocolo da Economia, há duas formas de acompanhá-lo:
+                </p>
                 <ol>
                     <li>Retornando ao Protocolo para acompanhamento.</li><br />
                     <li>Criando um login e senha para acessar o sistema PDP.</li>
@@ -1291,7 +890,8 @@
                         <li>Acesse: <a href="https://sistemas.sefaz.go.gov.br/pdp/" class="link"><b>Plataforma Digital
                                     de Processos (PDP)</b></a></li>
                     </ul>
-                    <li>Com o cadastro atualizado, tanto o interessado quanto o procurador poderão acessar e participar do processo.</li>
+                    <li>Com o cadastro atualizado, tanto o interessado quanto o procurador poderão acessar e participar
+                        do processo.</li>
                 </ol>
 
                 <br /><br />
@@ -1301,7 +901,8 @@
                 <p>Para dar continuidade a um processo na PDP:</p>
 
                 <ol>
-                    <li>Acesse o sistema <a href="https://sistemas.sefaz.go.gov.br/pdp/" class="link"><b>Plataforma Digital de Processos (PDP)</b></a></li><br />
+                    <li>Acesse o sistema <a href="https://sistemas.sefaz.go.gov.br/pdp/" class="link"><b>Plataforma
+                                Digital de Processos (PDP)</b></a></li><br />
                     <li>Localize o processo e clique em <b>Comunicados</b>.</li><br />
                     <li>Leia e responda ao comunicado conforme solicitado.
                     </li>
@@ -1321,7 +922,8 @@
 
                 <h2>Como utilizar a assinatura digital?</h2>
 
-                <p>Os documentos e formulários da GIPVA podem ser assinados digitalmente, e essa prática é recomendada. Use seu <b>certificado digital (token)</b> ou <b>Gov.br</b> para assinar os arquivos PDF.</p>
+                <p>Os documentos e formulários da GIPVA podem ser assinados digitalmente, e essa prática é recomendada.
+                    Use seu <b>certificado digital (token)</b> ou <b>Gov.br</b> para assinar os arquivos PDF.</p>
 
                 <p><b>Vantagens:</b></p>
                 <ul>
@@ -1351,9 +953,11 @@
                 <h2>Como verificar o andamento de um processo?</h2>
 
                 <ol>
-                    <li>Acesse: <a href="https://sistemas.sefaz.go.gov.br/pdp/" class="link"><b>Plataforma Digital de Processos (PDP)</b></a></li><br />
+                    <li>Acesse: <a href="https://sistemas.sefaz.go.gov.br/pdp/" class="link"><b>Plataforma Digital de
+                                Processos (PDP)</b></a></li><br />
                     <li>O processo segue uma fila de atendimento e não está parado.</li><br />
-                    <li>Se houve uma <b>diligência (comunicado)</b>, ele volta para o final da fila ao ser respondido.</li><br />
+                    <li>Se houve uma <b>diligência (comunicado)</b>, ele volta para o final da fila ao ser respondido.
+                    </li><br />
                     <li>Fique atento aos comunicados enviados por e-mail.</li>
                 </ol>
 
@@ -1361,18 +965,22 @@
 
                 <h2>Como solicitar documentos de um processo?</h2>
 
-                <p>A Secretaria de Economia do Estado de Goiás não envia documentos por e-mail para proteger os dados do cidadão e evitar fraudes.</p>
-                <p>Para acessar documentos clique no link "Ver Documentos Anexos do Processo" na seção "Lista de Andamentos"</p>
+                <p>A Secretaria de Economia do Estado de Goiás não envia documentos por e-mail para proteger os dados do
+                    cidadão e evitar fraudes.</p>
+                <p>Para acessar documentos clique no link "Ver Documentos Anexos do Processo" na seção "Lista de
+                    Andamentos"</p>
                 <!-- table class="success" -->
                 <table class="success metade">
                     <tr>
                         <td><img src="images/success.png" alt="Ícone de informação"></td>
-                        <td><b>Informação!</b><br />Consulte <a href="#Acompanhar" class="link"><b>Acompanhar Solicitações</b></a>, neste manual</td>
+                        <td><b>Informação!</b><br />Consulte <a href="#Acompanhar" class="link"><b>Acompanhar
+                                    Solicitações</b></a>, neste manual</td>
                     </tr>
                 </table>
                 <br />
 
-                <p>Outra opção é comparecer ao Protocolo Setorial da Economia e solicitar uma cópia mediante identificação.</p>
+                <p>Outra opção é comparecer ao Protocolo Setorial da Economia e solicitar uma cópia mediante
+                    identificação.</p>
 
                 <br /><br />
 
@@ -1383,16 +991,20 @@
                 <ol>
                     <li><b>Você já respondeu ao comunicado</b> (com ou sem anexos).</li>
                     <ul>
-                        <li>Se for esse o caso, envie um e-mail informando a situação à <b>gerência responsável pelo seu processo</b>.</li>
+                        <li>Se for esse o caso, envie um e-mail informando a situação à <b>gerência responsável pelo seu
+                                processo</b>.</li>
                         <p>OU</p>
-                        <li>Entre em contato com a <b>equipe de atendimento da Gerência</b> para verificar o status do processo.</li>
-                    </ul>   
-                    <li>O Auditor responsável pelo processo pode <b>não ter habilitado a opção de anexar documentos</b> ao gerar o comunicado (embora isso seja muito improvável).</li>
+                        <li>Entre em contato com a <b>equipe de atendimento da Gerência</b> para verificar o status do
+                            processo.</li>
+                    </ul>
+                    <li>O Auditor responsável pelo processo pode <b>não ter habilitado a opção de anexar documentos</b>
+                        ao gerar o comunicado (embora isso seja muito improvável).</li>
                     <p>Se isso ocorrer:</p>
                     <ul>
-                        <li>Responda ao comunicado com o seguinte texto: "<i>A opção para anexar documentos não está ativa. Solicito o envio de outro comunicado.</i>".</li><br />
+                        <li>Responda ao comunicado com o seguinte texto: "<i>A opção para anexar documentos não está
+                                ativa. Solicito o envio de outro comunicado.</i>".</li><br />
                         <li>Aguarde um novo comunicado até o próximo dia útil.</li>
-                    </ul>   
+                    </ul>
 
                 </ol>
 

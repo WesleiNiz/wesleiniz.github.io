@@ -197,7 +197,8 @@ li {
 
 .success {
     display: block;
-    background-color: #d4edda;;
+    background-color: #d4edda;
+    ;
     border-radius: 5px;
     border: 1px solid #ccc;
     line-height: 1.5;
@@ -399,6 +400,20 @@ img {
     display: block;
 }
 
+/* Make the image responsive ------------------------------------------------------- */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Center the image inside a container */
+.image-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* ------------------------------------------------------- */
 table.warning img.Paragraph {
     display: inline-block;
     vertical-align: bottom;
